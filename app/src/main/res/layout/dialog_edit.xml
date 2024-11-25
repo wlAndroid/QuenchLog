@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@drawable/bg_bottom_card"
+        android:minHeight="280dp"
+        android:layout_height="wrap_content" >
+
+    <EditText
+            android:maxLength="6"
+            android:inputType="numberDecimal"
+            android:lines="1"
+            app:layout_constraintBottom_toTopOf="@id/save"
+            android:paddingVertical="8dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:backgroundTint="#E7EFF1"
+            android:background="@drawable/bg_card"
+            android:id="@+id/edit"
+            android:gravity="center"
+            android:text="24012344440"
+            android:textColor="#FF2FD6D8"
+            android:textSize="40sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content" />
+
+    <TextView
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@id/edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Target water goals"
+            android:textColor="#FF999999"
+            android:textSize="14sp"
+            />
+
+    <TextView
+            app:layout_constraintTop_toBottomOf="@id/edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:background="@drawable/btn_save"
+            android:id="@+id/save"
+            android:gravity="center"
+            app:layout_constraintWidth_percent=".5"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:text="OK"
+            android:textStyle="bold"
+            android:textColor="#FFFFFFFF"
+            android:textSize="20sp"
+            />
+</androidx.constraintlayout.widget.ConstraintLayout >

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="24dp"
+        android:layout_height="110dp"
+        android:paddingVertical="24dp"
+        android:layout_gravity="center"
+        tools:background="#C0F0F1"
+        android:orientation="vertical" >
+
+    <View
+            android:layout_marginBottom="6dp"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/bg_ruler_item"
+            android:id="@+id/line"
+            android:layout_width="8dp"
+            android:layout_height="22dp" />
+
+</RelativeLayout >
+
