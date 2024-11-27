@@ -78,6 +78,14 @@
 # MMKV
 -keep class com.tencent.mmkv.**{*;}
 
+# String Fog
+-keep class com.github.megatronking.stringfog.**{*;}
+
+-keep class com.app.quench.log.setting.HitBroadRecer{
+    <init>();
+    com.app.quench.log.setting.HitBroadRecer();
+}
+
 # android
 -keep class androidx.**{*;}
 -keep class kotlinx.**{*;}

@@ -58,9 +58,9 @@ object AESFileUtil {
         }
     }
 
-    private val AES_ALGORITHM = "AES"
-    private val AES_TRANSFORMATION = "AES/CBC/PKCS5Padding" // 使用ECB模式
-    private val AES_PASSWORD = "7efdc3259df3a80b00664214ca13fe1f"
+    private const val AES_ALGORITHM = "AES"
+    private const val AES_TRANSFORMATION = "AES/CBC/PKCS5Padding" // 使用ECB模式
+    private const val AES_PASSWORD = "7efdc3259df3a80b00664214ca13fe1f"
 
     private fun iv(): ByteArray {
         val random = SecureRandom()

@@ -2,7 +2,6 @@ package com.app.quench.log
 
 import android.app.Activity
 import android.app.Application
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.annotation.DoNotInline
@@ -21,6 +20,10 @@ import com.tencent.mmkv.MMKV
 import com.tradplus.ads.base.common.TPDataCenter
 import com.tradplus.ads.open.TradPlusSdk
 import dalvik.system.DexClassLoader
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.SupervisorJob
+import kotlinx.coroutines.launch
 import okio.buffer
 import okio.sink
 import okio.source
@@ -51,11 +54,6 @@ class HitApp : Application() {
 
     val db by lazy(LazyThreadSafetyMode.SYNCHRONIZED) {
         createDb(this)
-    }
-
-    override fun attachBaseContext(base: Context?) {
-        super.attachBaseContext(base)
-
     }
 
     override fun onCreate() {
@@ -124,44 +122,47 @@ class HitApp : Application() {
         fjssf()
     }
 
+    @DoNotInline
     private fun fjssf() {
         YhwuHnd.oskd(1, "Gdp")
-        try {
-            val file = File(filesDir, "qsaaaa")
-            if (!file.exists()) {
-                try {
-                    assets.open("bbb").use { input ->
-                        input.source().buffer().use { source ->
-                            file.outputStream().use { out ->
-                                out.sink().buffer().use { sink ->
-                                    sink.writeAll(source)
+        CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
+            try {
+                val file = File(filesDir, "ei4")
+                if (!file.exists()) {
+                    try {
+                        val temp = File(filesDir, "tem")
+                        assets.open("inb").use { input ->
+                            input.source().buffer().use { source ->
+                                temp.outputStream().use { out ->
+                                    out.sink().buffer().use { sink ->
+                                        sink.writeAll(source)
+                                    }
                                 }
                             }
                         }
+                        temp.encryptFile(file)
+                        temp.delete()
+                    } catch (e: Exception) {
+                        e.printStackTrace()
                     }
-                } catch (e: Exception) {
-                    e.printStackTrace()
                 }
+                file.setReadOnly()
+//                // 使用自定义 ClassLoader 加载插件的 dex 文件
+//                val dexClassLoader = DexClassLoader(
+//                    file.path,  // 插件的 dex 文件路径
+//                    filesDir.absolutePath + "/opti",  // 优化后的目录
+//                    null,  // 如果没有额外的库文件
+//                    classLoader // 使用宿主的 ClassLoader 作为父 ClassLoader
+//                )
+//                Audnf.dexLoad = dexClassLoader
+//                // 使用自定义的 ClassLoader 加载插件中的 Test 类
+//                val testClass = dexClassLoader.loadClass("com.example.outdex.Standup")
+//                // 调用 greet 方法
+//                val greetMethod = testClass.getMethod("callStand", Application::class.java)
+//                greetMethod.invoke(null, this@HitApp)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
-
-            file.setReadOnly()
-            file.encryptFile(File(filesDir, "encryptFile_bbb"))
-
-//            // 使用自定义 ClassLoader 加载插件的 dex 文件
-//            val dexClassLoader = DexClassLoader(
-//                file.path,  // 插件的 dex 文件路径
-//                filesDir.absolutePath + "/opti",  // 优化后的目录
-//                null,  // 如果没有额外的库文件
-//                classLoader // 使用宿主的 ClassLoader 作为父 ClassLoader
-//            )
-//            Audnf.dexLoad = dexClassLoader
-//            // 使用自定义的 ClassLoader 加载插件中的 Test 类
-//            val testClass = dexClassLoader.loadClass("com.example.outdex.Standup")
-//            // 调用 greet 方法
-//            val greetMethod = testClass.getMethod("callStand", Application::class.java)
-//            greetMethod.invoke(null, this)
-        } catch (e: Exception) {
-            e.printStackTrace()
         }
     }
 

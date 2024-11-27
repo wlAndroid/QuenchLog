@@ -7,7 +7,7 @@ object HitKey {
 
     //Adjust
     const val ADJUST = "p7dhmx9zfym8"
-    const val VERSION_NAME = "0.0.2"
+    const val VERSION_NAME = "0.0.3"
     const val PACKANGE = "com.app.quench"
 
     const val DELETE_PACKAGE = "com.stick.quenchlog"

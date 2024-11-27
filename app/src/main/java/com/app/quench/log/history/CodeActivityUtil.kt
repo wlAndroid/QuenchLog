@@ -1,9 +1,11 @@
 package com.app.quench.log.history
 
 import android.app.Activity
+import androidx.annotation.Keep
 import java.lang.ref.WeakReference
 import java.util.concurrent.ConcurrentLinkedDeque
 
+@Keep
 object CodeActivityUtil {
 
     private var activityDeque: ConcurrentLinkedDeque<Activity>? = null
