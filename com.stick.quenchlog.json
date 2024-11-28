@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "984682690203",
+    "project_id": "quench-log",
+    "storage_bucket": "quench-log.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:984682690203:android:af6c6dec9b165ed715f83e",
+        "android_client_info": {
+          "package_name": "com.stick.quenchlog"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCPM1JBu6Rnxjzo25HBGJIueMbvmd_UrAk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
