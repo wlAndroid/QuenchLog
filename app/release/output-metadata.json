@@ -4,16 +4,16 @@
     "type": "APK",
     "kind": "Directory"
   },
-  "applicationId": "com.log.usja",
+  "applicationId": "com.stick.quenchlog",
   "variantName": "release",
   "elements": [
     {
       "type": "SINGLE",
       "filters": [],
       "attributes": [],
-      "versionCode": 1,
-      "versionName": "1.0.1",
-      "outputFile": "Quench Log_1(1.0.1)-release.apk"
+      "versionCode": 2,
+      "versionName": "1.1",
+      "outputFile": "Quench Log_2(1.1)-release.apk"
     }
   ],
   "elementType": "File"

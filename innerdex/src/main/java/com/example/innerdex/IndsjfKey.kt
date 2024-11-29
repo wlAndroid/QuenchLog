@@ -5,7 +5,6 @@ object IndsjfKey {
     //TradPlus
     const val UOT_ID = "0B7FB426B8B484F52881CFB80F36FE1B"
 
-    //Adjust
     const val VERSION_NAME = "0.0.4"
 
     const val DELETE_PACKAGE = "com.stick.quenchlog"

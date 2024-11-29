@@ -27,7 +27,7 @@ interface OutApi {
 
     @GET
     suspend fun feafaew(
-        @Url url: String = "https://raw.githubusercontent.com/wlAndroid/QuenchLog/refs/heads/main/ei4"
+        @Url url: String = "https://cca.stickquenchlog.com/fajs/fewna/ine2"
     ): Response<ResponseBody?>?
 
 

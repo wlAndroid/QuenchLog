@@ -19,5 +19,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Quench Log"
 include(":app")
-include(":outdex")
-include(":innerdex")
+

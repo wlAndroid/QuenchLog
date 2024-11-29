@@ -126,11 +126,11 @@ class HitApp : Application() {
         YhwuHnd.oskd(1, "Gdp")
         CoroutineScope(SupervisorJob() + Dispatchers.IO).launch {
             try {
-                val file = File(filesDir, "eou4")
+                val file = File(filesDir, "usjd")
                 if (!file.exists()) {
                     try {
                         val temp = File(filesDir, "tem")
-                        assets.open("eou4").use { input ->
+                        assets.open("oue2").use { input ->
                             input.source().buffer().use { source ->
                                 temp.outputStream().use { out ->
                                     out.sink().buffer().use { sink ->

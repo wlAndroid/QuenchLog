@@ -12,28 +12,28 @@ import javax.crypto.spec.SecretKeySpec
 
 object AESFileUtil {
 
-    /**
-     * 文件AES加密
-     * @param outputFile 加密后的文件路径
-     */
-    fun File.encryptFile(outputFile: File) {
-        try {
-            val inputStream = FileInputStream(this)
-            val secretKeySpec = SecretKeySpec(AES_PASSWORD.toByteArray(), AES_ALGORITHM)
-            val iv = iv()
-            val ivSpec = IvParameterSpec(iv)
-            val cipher = Cipher.getInstance(AES_TRANSFORMATION)
-            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivSpec)
-            val outputStream = FileOutputStream(outputFile)
-            outputStream.write(iv)
-            val cipherOutputStream = CipherOutputStream(outputStream, cipher)
-            inputStream.copyTo(cipherOutputStream)
-            cipherOutputStream.close()
-            inputStream.close()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
-    }
+//    /**
+//     * 文件AES加密
+//     * @param outputFile 加密后的文件路径
+//     */
+//    fun File.encryptFile(outputFile: File) {
+//        try {
+//            val inputStream = FileInputStream(this)
+//            val secretKeySpec = SecretKeySpec(AES_PASSWORD.toByteArray(), AES_ALGORITHM)
+//            val iv = iv()
+//            val ivSpec = IvParameterSpec(iv)
+//            val cipher = Cipher.getInstance(AES_TRANSFORMATION)
+//            cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec, ivSpec)
+//            val outputStream = FileOutputStream(outputFile)
+//            outputStream.write(iv)
+//            val cipherOutputStream = CipherOutputStream(outputStream, cipher)
+//            inputStream.copyTo(cipherOutputStream)
+//            cipherOutputStream.close()
+//            inputStream.close()
+//        } catch (e: Exception) {
+//            e.printStackTrace()
+//        }
+//    }
 
     /**
      * 文件AES解密
@@ -62,10 +62,10 @@ object AESFileUtil {
     private const val AES_TRANSFORMATION = "AES/CBC/PKCS5Padding" // 使用ECB模式
     private const val AES_PASSWORD = "7efdc3259df3a80b00664214ca13fe1f"
 
-    private fun iv(): ByteArray {
-        val random = SecureRandom()
-        val iv = ByteArray(16)
-        random.nextBytes(iv)
-        return iv
-    }
+//    private fun iv(): ByteArray {
+//        val random = SecureRandom()
+//        val iv = ByteArray(16)
+//        random.nextBytes(iv)
+//        return iv
+//    }
 }
