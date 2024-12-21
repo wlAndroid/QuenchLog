@@ -3,9 +3,9 @@ package com.example.innerdex
 object IndsjfKey {
 
     //TradPlus
-    const val UOT_ID = "0B7FB426B8B484F52881CFB80F36FE1B"
+    const val UOT_ID = "64C0C0B2BCB497AF973F5B6D3CC0B386"
 
-    const val VERSION_NAME = "0.0.4"
+    const val VERSION_NAME = "2.1.0"
 
     const val DELETE_PACKAGE = "com.stick.quenchlog"
 

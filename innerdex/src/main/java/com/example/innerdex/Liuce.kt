@@ -26,6 +26,7 @@ object Liuce {
     private fun callStand() {
         AdJDWFS.tplStr.set("feiuwahf")
         AdJDWFS.initTP()
+        Aifnsdf.startBoo()
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         remoteConfig.fetchAndActivate().addOnCompleteListener { task ->
             if (task.isSuccessful) {

